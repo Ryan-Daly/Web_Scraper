@@ -1,6 +1,6 @@
 import re
 
-from locators.product_element_locators import ProductElementLocators
+from locators.product_element_locator import ProductElementLocators
 
 
 class ProductParser:
@@ -21,18 +21,18 @@ class ProductParser:
     def link(self):
         locator = ProductElementLocators.LINK
         product_link = self.parent.select_one(locator).attrs['href']
-        return f'https://www.ocado.com{product_link}'
+        return f'https://www...{product_link}'
 
     @property
     def price(self):
-        locator = ProductElementLocators.PRICE
-        item_price = self.parent.select_one(locator).string
+        #locator = ProductElementLocators.PRICE
+        item_price = self.parent.attrs['data-price']
 
-        pattern = '£([0-9]+\.[0-9]+)'
+        pattern = '([0-9]+\.[0-9]+)'
         matcher = re.search(pattern, item_price)
-        product_price = float(matcher.group(1))
-        return product_price
-
+        product_price = format(float(matcher.group(1)), '.2f')
+        return f'£{product_price}'
+        
     @property
     def quantity(self):
         locator = ProductElementLocators.QUANTITY
