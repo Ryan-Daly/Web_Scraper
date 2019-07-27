@@ -8,20 +8,20 @@ class ProductParser:
         self.parent = parent    # product container = parent
 
     def __repr__(self):
-        return f'Product {self.price}'
+        return f'\nProduct: {self.name} *** {self.price} *** {self.link}'
 
     @property
     def name(self):
-        locator = ProductElementLocators.NAME
-        product_name = self.parent.select_one(locator).attrs['title']
-        print(product_name)
+        #locator = ProductElementLocators.NAME
+        product_name = self.parent.attrs['data-product-name']
+        product_name = re.sub(' +', ' ', product_name)
         return product_name
 
     @property
     def link(self):
         locator = ProductElementLocators.LINK
         product_link = self.parent.select_one(locator).attrs['href']
-        return f'https://www...{product_link}'
+        return product_link
 
     @property
     def price(self):
