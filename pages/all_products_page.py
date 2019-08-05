@@ -1,8 +1,9 @@
 import re
+from bs4 import BeautifulSoup
 
 from locators.product_locators import ProductLocator
 from parsers.product import ProductParser
-from bs4 import BeautifulSoup
+from locators.page_locator import PagerLocator
 
 
 class AllProductsPage:
@@ -13,3 +14,7 @@ class AllProductsPage:
     def products(self):
         return [ProductParser(e) for e in self.soup.select(ProductLocator.WILKO)]
         # for each product container in the parent object
+    
+    @property
+    def page_count(self):
+        return int(self.soup.select_one(PagerLocator.WILKO).attrs['data-total-pages'])

@@ -1,3 +1,4 @@
-price = ['one', 'two', 'three']
+page_count = 2
 
-print(price[1])
+for num in range(1, page_count):
+    print(num)

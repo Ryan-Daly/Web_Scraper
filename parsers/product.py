@@ -12,8 +12,8 @@ class ProductParser:
 
     @property
     def name(self):
-        #locator = ProductElementLocators.NAME
-        product_name = self.parent.attrs['data-product-name']
+        locator = ProductElementLocators.NAME
+        product_name = self.parent[locator]
         product_name = re.sub(' +', ' ', product_name)
         return product_name
 

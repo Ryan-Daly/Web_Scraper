@@ -1,25 +1,26 @@
-import requests
-import time
-import re
+import requests, time, re
 
 from pages.all_products_page import AllProductsPage
 
-url = 'https://www.wilko.com/en-uk/pets/cats-kittens/cat-food-treats/c/1077?page=0&pageSize=24'
+url = 'https://www.wilko.com/en-uk/pets/cats-kittens/cat-food-treats/c/1077'
 
-#page_content = requests.get(url).content
+page_content = requests.get(url).content
 
+page = AllProductsPage(page_content)
 
-#page = AllProductsPage(page_content)
+#def website_parsed(url):
+    #pattern = '(www.[a-z]+.com)'
+   # matcher = re.search(pattern, url)
+  #  website = matcher.group(1)
+ #   return f'{website}'
 
-#products = page.products
+#website = website_parsed(url)
 
-def website_parsed(url):
-    pattern = '(https://www.[a-z]+.com/)'
-    matcher = re.search(pattern, url)
-    website = matcher.group(1)
-    return f'{website}'
+products = page.products
 
-website = website_parsed(url)
+for page_num in range(1, page.page_count):
+    page_content = requests.get(f'{url}?page={page_num}&pageSize=24').content
+    page = AllProductsPage(page_content)
+    products.extend(page.products)
 
-#print(products)
-print(website)
+print(products)

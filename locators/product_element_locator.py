@@ -1,5 +1,5 @@
 class ProductElementLocators:
-    NAME = ''
+    NAME = "data-product-name"
     LINK = 'div.details a.product-link.name'
     PRICE = ''
     QUANTITY = ''
