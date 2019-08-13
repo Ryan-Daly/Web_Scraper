@@ -7,12 +7,14 @@ from locators.page_locator import PagerLocator
 
 
 class AllProductsPage:
-    def __init__(self, page_content):
+    def __init__(self, page_content, website):
         self.soup = BeautifulSoup(page_content, 'html.parser')
+        self.website = website
 
     @property
     def products(self):
-        return [ProductParser(e) for e in self.soup.select(ProductLocator.WILKO)]
+        store_product_locator = ProductLocator.locator_selector(self, self.website)
+        return [ProductParser(e) for e in self.soup.select(store_product_locator)]
         # for each product container in the parent object
     
     @property
