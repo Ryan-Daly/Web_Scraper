@@ -19,4 +19,5 @@ class AllProductsPage:
     
     @property
     def page_count(self):
-        return int(self.soup.select_one(PagerLocator.WILKO).attrs['data-total-pages'])
+        store_pager_locator = PagerLocator.locator_selector(self, self.website)
+        return int(self.soup.select_one(store_pager_locator).attrs['data-total-pages'])
