@@ -1,30 +1,26 @@
-:root{
-    --primary: red;
-
-}
-
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;    
 }
 
 body {
     line-height: 1.6;
-    color: #333333;
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: Arial, Helvetica, sans-serif;    
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .main-container {
-    display: grid;
-    overflow: hidden;
-
+    overflow: auto;
+    background: #443D7F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #1A1541, #443D7F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1A1541, #443D7F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .navbar {
@@ -33,6 +29,9 @@ a {
     justify-content: space-around;
     align-items: center;
     flex-basis: 100%;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
 }
 
 .nav-main {
@@ -47,43 +46,75 @@ a {
     padding: 20px 30px;
 }
 
-.nav-main a:visited {
-    color: black;
-}
 
-h1.logo {
+.logo {
     font-size: 2rem;
     justify-content: start;
 }
 
-a.nav-get-started {
-    color: #ffffff;
-    padding: 0.5rem 0.7rem;
-    background: blue;
+a.btn {
+    display: inline-block;
+    color: #FEFEFE;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    text-transform: uppercase;
-    
+    text-transform: uppercase
+}
+
+a.nav-get-started {
+    padding: 0.5rem 0.7rem;
+    border: solid #FEFEFE;
+    border-width: thin;
 }
 
 /* main body */
 
 .top-container {
     display: grid;
-    /* grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 3fr 1fr; */
-    justify-items: center;
-    align-items: center;
     justify-content: center;
     align-content: center;
+    width: 100%;
+    height: 90vh;
+    transform: translateY(-60px);
 }
 
 .body-container {
-    background-color: #333333;
-    padding: 5rem 8rem;
-    position: fixed;
-    top: 50%;
-    left: 25%;
+    border-radius: 20px;
+    background: #443D7F;
+    -webkit-box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15);
+    -moz-box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15);
+    box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 100px;
+    margin: 0 20%;
+    line-height: 4rem;
+    text-align: center;
+}
 
+.body-container h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.showcase-links a {
+    padding: 0 5rem;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin: 2rem 2rem 0 2rem ;
+    color: #ffffff;
+    background-color: #E29C2A;
+}
+
+.showcase-links .login {
+    background-color: transparent;
+    border: #ffffff solid;
+    border-width: thin;
+}
+
+.subheading {
+    line-height: 2rem;
 }
