@@ -18,10 +18,12 @@ a {
 
 .main-container {
     overflow: auto;
-    background: #443D7F;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #1A1541, #443D7F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #1A1541, #443D7F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+    background: #443D7F;
+    background: -webkit-linear-gradient(to top, #1A1541, #443D7F); 
+    background: linear-gradient(to top, #1A1541, #443D7F); 
+    /* background-image: radial-gradient(rgb(0, 0, 0, 1) 10%, transparent 0%);
+    background-size: 60px 60px; */
+} 
 
 .navbar {
     display: flex;
@@ -80,10 +82,10 @@ a.nav-get-started {
 
 .body-container {
     border-radius: 20px;
-    background: #443D7F;
+    /* background: #443D7F;
     -webkit-box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15);
     -moz-box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15);
-    box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15);
+    box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.15); */
     display: flex;
     flex-direction: column;
     justify-items: center;
